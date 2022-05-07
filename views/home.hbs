@@ -1,0 +1,11 @@
+<div class="row vh-100 w-100 justify-content-center">
+    <div style="width: 400px;">
+        <h1 class="text-center mb-3" style="padding-top: 70px;">Add your URL's 👇🏼</h1>
+
+{{> Form}}
+
+{{#each urls }}
+    {{> Card item = this}} <!--al componente Card le estoy pasando props. "item" es el nombre, "this" es el valor que se va repitiendo con cada interasión -->
+{{/each}}
+    </div>
+</div>

@@ -1,0 +1,49 @@
+<div class="row justify-content-center align-items-center vh-100 w-100">
+  <div class="text-center" style="width: 300px;">
+    <h1 class="text-center text-capitalize">Hi! {{user.userName}}</h1>
+    <div class="my-4 text-center" width="50px" heigth="50px">
+      {{#if imagen}}
+        <img
+          src="/img/perfiles/{{imagen}}"
+          class="rounded-circle"
+          style="width: 100px;"
+        />
+      {{else}}
+        <img
+          src="/img/perfiles/perfil.jpg"
+          class="rounded-circle"
+          style="width: 100px;"
+        />
+      {{/if}}
+    </div>
+    <p class="opacity-75 text-light">Change Profile Picture</p>
+
+    {{! Para validar formularios de img no basta con lo que haciamos en los inputs... }}
+    {{!-- anteriores -->> <input type="hidden" name="_csrf" value="{{csrfToken}}"> --}}
+    {{! Debemos hacerlo de la siguiente manera (como una queri) en el form }}
+    <form
+      action="/perfil?_csrf={{csrfToken}}"
+      method="post"
+      enctype="multipart/form-data"
+    >
+    <div style="position: relative;">
+        <div class="w-100 h-100" style="position: absolute; opacity: 0">
+            <input type="hidden" name="_csrf" value="{{csrfToken}}" />
+            <input
+                type="file"
+                class="form-control form-control-sm w-100 h-100"
+                id="formFileSm"
+                name="myFile"
+            />
+        </div>
+        <div class="rounded w-100 d-flex justify-content-center align-items-center" style="border: 1px dashed white; height: 150px;">
+            <div class="">
+                <img src="/img/use/addfile.png" style="width: 70px; height: 70px;" alt="addfile">
+                <p class="mb-0">Select New Image</p>
+            </div>
+        </div>
+    </div>
+      <button class="btn text-light my-3 w-100 py-3" style="background-color: #EE5007;">Change</button>
+    </form>
+  </div>
+</div>

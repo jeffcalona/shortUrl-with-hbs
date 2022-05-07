@@ -1,0 +1,11 @@
+<article class="card shadow p-3 mb-5 bg-body rounded rounded-3">
+  <div class="card-body">
+    <p>{{item.origin}}</p>
+    <p>{{item.shortURL}}</p>
+    <div class="w-100 d-flex justify-content-between">
+      <a href="/eliminar/{{item._id}}" class="btn btn-danger" style="background-color: #B22727; width: 90px;">Remove</a>
+      <a href="editar/{{item._id}} " class="btn btn-warning text-light" style="background-color: #F8CB2E; width: 90px;">Edit</a>
+      <button data-short="{{item.shortURL}}" href="#" class="btn btn-info text-light" style="background-color: #006E7F; width: 90px;">Copy</button>
+    </div>
+  </div>
+</article>
